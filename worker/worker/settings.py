@@ -1,4 +1,4 @@
-# Scrapy settings for gonsa project
+# Scrapy settings for worker project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'gonsa'
+BOT_NAME = 'worker'
 
-SPIDER_MODULES = ['gonsa.spiders']
-NEWSPIDER_MODULE = 'gonsa.spiders'
+SPIDER_MODULES = ['worker.spiders']
+NEWSPIDER_MODULE = 'worker.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'gonsa (+http://www.yourdomain.com)'
+#USER_AGENT = 'worker (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -45,13 +45,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'gonsa.middlewares.GonsaSpiderMiddleware': 543,
+#    'worker.middlewares.WorkerSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'gonsa.middlewares.GonsaDownloaderMiddleware': 543,
+#    'worker.middlewares.WorkerDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -63,7 +63,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'gonsa.pipelines.GonsaPipeline': 300,
+#    'worker.pipelines.WorkerPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
