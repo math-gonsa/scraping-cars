@@ -1,5 +1,6 @@
 from itemadapter import ItemAdapter
 from pymongo import MongoClient
+from .normalize import normalize_item
 
 class WorkerPipeline:
     
@@ -21,5 +22,6 @@ class WorkerPipeline:
         self.client.close()
 
     def process_item(self, item, spider):
-        self.db[self.collection_name].insert_one(ItemAdapter(item).asdict())
+        item_normalized = normalize_item( ItemAdapter(item).asdict() )
+        self.db[self.collection_name].update_one( { "url_hash": item_normalized['url_hash'] }, {"$set": item_normalized }, upsert=True)
         return item

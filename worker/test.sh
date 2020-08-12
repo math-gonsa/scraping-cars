@@ -1,0 +1,1 @@
+clear && docker build -t scraping . && docker run -it scraping bash -c "scrapy crawl olx"
