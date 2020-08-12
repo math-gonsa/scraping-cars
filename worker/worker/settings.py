@@ -10,14 +10,16 @@
 BOT_NAME = 'worker'
 
 SPIDER_MODULES = ['worker.spiders']
+
 NEWSPIDER_MODULE = 'worker.spiders'
 
+MONGO_URI = 'localhost'
 
-# Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'worker (+http://www.yourdomain.com)'
+MONGO_DATABASE = 'cars'
 
-# Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+USER_AGENT = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
