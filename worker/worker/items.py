@@ -4,7 +4,7 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 import scrapy
-from scrapy.loader.processors import TakeFirst
+from itemloaders.processors import TakeFirst
 
 class Car(scrapy.Item):
     url = scrapy.Field(output_processor=TakeFirst())
@@ -21,3 +21,5 @@ class Car(scrapy.Item):
     color = scrapy.Field(output_processor=TakeFirst())
     motor_power = scrapy.Field(output_processor=TakeFirst())
     number_of_doors = scrapy.Field(output_processor=TakeFirst())
+    neighborhood = scrapy.Field(output_processor=TakeFirst())
+    city = scrapy.Field(output_processor=TakeFirst())

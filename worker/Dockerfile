@@ -8,4 +8,4 @@ COPY . /scraping-cars
 
 WORKDIR /scraping-cars
 
-CMD ["bash"]
+CMD ["python", "-u", "main.py"]
