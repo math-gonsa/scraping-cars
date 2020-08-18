@@ -1,11 +1,4 @@
-# Scrapy settings for worker project
-#
-# For simplicity, this file contains only settings considered important or
-# commonly used. You can find more settings consulting the documentation:
-#
-#     https://docs.scrapy.org/en/latest/topics/settings.html
-#     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+import os
 
 BOT_NAME = 'worker'
 
@@ -13,9 +6,9 @@ SPIDER_MODULES = ['worker.spiders']
 
 NEWSPIDER_MODULE = 'worker.spiders'
 
-MONGO_URI = 'mongodb://host.docker.internal:27017'
+MONGO_URI = os.environ['MONGO_URI']
 
-MONGO_DATABASE = 'cars'
+MONGO_DATABASE = os.environ['MONGO_DATABASE']
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
 
