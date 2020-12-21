@@ -8,8 +8,10 @@ class OLXSpider(scrapy.Spider):
 
     def start_requests(self):
         states = ["ac","al","ap","am","ba","ce","df","es","go","ma","mt","ms","mg","pa","pb","pr","pe","pi","rj","rn","rs","ro","rr","sc","sp","se","to"]
-        url = f"https://{random.choice(states)}.olx.com.br/autos-e-pecas/carros-vans-e-utilitarios"
-        yield scrapy.Request(url=url, callback=self.parse)
+        state = random.choice(states)
+        for i in range(1, 10):
+            url = f"https://{state}.olx.com.br/autos-e-pecas/carros-vans-e-utilitarios?ctp={i}"
+            yield scrapy.Request(url=url, callback=self.parse)
             
     def parse(self, response):
         items = response.xpath('//ul[@id="ad-list"]/li/a')
@@ -18,7 +20,6 @@ class OLXSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse_detail)
         
         next_page = response.xpath('//a[@data-lurker-detail="next_page"]/@href').extract_first()
-        print(next_page)
         if next_page:
             yield scrapy.Request(url=next_page, callback=self.parse)
     

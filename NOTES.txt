@@ -1,0 +1,3 @@
+db.getCollection('cars').find({'model': /.*POLO GT.*/, 'year_manufacture': {"$lte": 2014}}).sort({'price':-1})
+
+db.getCollection('cars').find({'model':/.*CAMRY.*/, 'url':/.*olx.*/ }).sort({'year_manufacture':-1})
